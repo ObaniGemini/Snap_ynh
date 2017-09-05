@@ -1,0 +1,6 @@
+SOURCE_URL=https://github.com/jmoenig/Snap--Build-Your-Own-Blocks/archive/4.0.10.2.zip
+SOURCE_SUM=sha256 checksum
+SOURCE_SUM_PRG=sha256
+SOURCE_FORMAT=zip
+SOURCE_IN_SUBDIR=false
+SOURCE_FILENAME=
