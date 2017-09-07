@@ -101,6 +101,7 @@ ynh_app_setting_set $app is_public $is_public
 cd ../sources
 git clone https://github.com/jmoenig/Snap--Build-Your-Own-Blocks
 cd Snap--Build-Your-Own-Blocks
+echo "Moving Snap to /var/www/"
 mkdir /var/www/$path_url
 mv * /var/www/$path_url
 
