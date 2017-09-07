@@ -42,39 +42,6 @@ ynh_remove_nginx_config () {
 	sudo systemctl reload nginx
 }
 
-# Create a dedicated php-fpm config
-#
-# usage: ynh_add_fpm_config
-ynh_add_fpm_config () {
-	finalphpconf="/etc/php5/fpm/pool.d/$app.conf"
-	ynh_backup_if_checksum_is_different "$finalphpconf"
-	sudo cp ../conf/php-fpm.conf "$finalphpconf"
-	ynh_replace_string "__NAMETOCHANGE__" "$app" "$finalphpconf"
-	ynh_replace_string "__FINALPATH__" "$final_path" "$finalphpconf"
-	ynh_replace_string "__USER__" "$app" "$finalphpconf"
-	sudo chown root: "$finalphpconf"
-	ynh_store_file_checksum "$finalphpconf"
-
-	if [ -e "../conf/php-fpm.ini" ]
-	then
-		finalphpini="/etc/php5/fpm/conf.d/20-$app.ini"
-		ynh_backup_if_checksum_is_different "$finalphpini"
-		sudo cp ../conf/php-fpm.ini "$finalphpini"
-		sudo chown root: "$finalphpini"
-		ynh_store_file_checksum "$finalphpini"
-	fi
-
-	sudo systemctl reload php5-fpm
-}
-
-# Remove the dedicated php-fpm config
-#
-# usage: ynh_remove_fpm_config
-ynh_remove_fpm_config () {
-	ynh_secure_remove "/etc/php5/fpm/pool.d/$app.conf"
-	ynh_secure_remove "/etc/php5/fpm/conf.d/20-$app.ini" 2>&1
-	sudo systemctl reload php5-fpm
-}
 
 # Create a dedicated systemd config
 #
