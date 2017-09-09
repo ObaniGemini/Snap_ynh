@@ -12,9 +12,9 @@ ynh_add_nginx_config () {
 	finalnginxconf="/etc/nginx/conf.d/$domain.d/$app.conf"
 	ynh_backup_if_checksum_is_different "$finalnginxconf"
 
-	im_there = `pwd`
+	im_there=`pwd`
 	echo $im_there
-	read p
+	sleep 10
 
 	sudo cp ../conf/nginx.conf "$finalnginxconf"
 
