@@ -14,9 +14,8 @@ ynh_add_nginx_config () {
 
 	im_there=`pwd`
 	echo "je suis la $im_there" 1>&2
-	sleep
 
-	sudo cp ../conf/nginx.conf "$finalnginxconf"
+	sudo cp ../../conf/nginx.conf "$finalnginxconf"
 
 	# To avoid a break by set -u, use a void substitution ${var:-}. If the variable is not set, it's simply set with an empty variable.
 	# Substitute in a nginx config file only if the variable is not empty
