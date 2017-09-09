@@ -11,6 +11,7 @@
 ynh_add_nginx_config () {
 	pwd
 	read p
+	sleep 5
 	finalnginxconf="/etc/nginx/conf.d/$domain.d/$app.conf"
 	ynh_backup_if_checksum_is_different "$finalnginxconf"
 	sudo cp ../conf/nginx.conf "$finalnginxconf"
