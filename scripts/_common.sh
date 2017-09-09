@@ -13,7 +13,7 @@ ynh_add_nginx_config () {
 	ynh_backup_if_checksum_is_different "$finalnginxconf"
 
 	im_there = `pwd`
-	echo im_there
+	echo $im_there
 	read p
 
 	sudo cp ../conf/nginx.conf "$finalnginxconf"
