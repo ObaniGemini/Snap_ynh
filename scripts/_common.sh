@@ -13,8 +13,8 @@ ynh_add_nginx_config () {
 	ynh_backup_if_checksum_is_different "$finalnginxconf"
 
 	im_there=`pwd`
-	echo $im_there
-	sleep 10
+	echo "je suis la $im_there" 1>&2
+	sleep
 
 	sudo cp ../conf/nginx.conf "$finalnginxconf"
 
